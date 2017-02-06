@@ -1,0 +1,2 @@
+turtlesim_gamepad_control:turtlesim_openloop_control
+-DCATKIN_DEVEL_PREFIX=/home/racecar/turtlesim-ws/devel -DCMAKE_INSTALL_PREFIX=/home/racecar/turtlesim-ws/install -G Unix Makefiles
