@@ -1,5 +1,6 @@
 ## By using matplotlib to plot pictures, we can learn the value of
-## a color.
+## a color. Keep in mind the BGR to RGB conversion that has to be
+## performed in order to plot the image right using matplotlib.
 ## Created on February 14, 2017
 ##
 ## The material was gathered from the following webpages:
