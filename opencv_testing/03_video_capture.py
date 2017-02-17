@@ -14,7 +14,9 @@ while(True):
     ret, frame = cap.read()
     # Our operations on the frame come here
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # Display the resulting frame
+    # Display the resulting frame. To display in color, comment
+    # out the line above 'gray = ...' and change the word 'gray'
+    # below to 'frame'
     cv2.imshow('frame',gray)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
