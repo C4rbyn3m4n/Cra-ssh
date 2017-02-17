@@ -10,3 +10,8 @@
 pip install matplotlib-2.0.0-cp27-cp27m-win32.whl
 python setup.py install
 ```
+
+## Link to instructions on how to set up OpenCV on your computer
+http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html
+
+I would recommend you to install numpy and matplotlib through pip to save yourself from trouble.
