@@ -15,3 +15,6 @@ python setup.py install
 http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html
 
 I would recommend you to install numpy and matplotlib through pip to save yourself from trouble.
+
+## The following site is on blob detection
+https://www.learnopencv.com/blob-detection-using-opencv-python-c/
