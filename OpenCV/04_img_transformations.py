@@ -1,7 +1,7 @@
-## This script shows the effect of matrix transformations on an image.
+## This program shows the effect of matrix transformations on an image.
 ## Created on February 14, 2017.
 ##
-## The material was gathered from the following webpages:
+## The material was gathered from the following website(s):
 ## http://stackoverflow.com/questions/15072736/extracting-a-region-from-an-image-using-slicing-in-python-opencv/15074748#15074748
 ##
 
@@ -20,10 +20,10 @@ img4 = img[::-1,:,:]                # flip image along horizontal axis
 img5 = img[::-1,::-1,:]             # flip image along both x and y axes
 
 # Write images out
-cv2.imwrite('saitama_bgr_to_rgb.png',img2)
-cv2.imwrite('saitama_flip_ver.png',img3)
-cv2.imwrite('saitama_flip_hor.png',img4)
-cv2.imwrite('saitama_flip_both_axes.png',img5)
+cv2.imwrite('saitama_bgr_to_rgb.png', img2)
+cv2.imwrite('saitama_flip_ver.png', img3)
+cv2.imwrite('saitama_flip_hor.png', img4)
+cv2.imwrite('saitama_flip_both_axes.png', img5)
 
 plt.subplot(121);plt.imshow(img)    # expects distorted color
 plt.subplot(122);plt.imshow(img2)   # expect true color

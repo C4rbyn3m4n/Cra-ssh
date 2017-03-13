@@ -1,6 +1,7 @@
+## This program captures video and displays it.
 ## Created on February 14, 2017
 ##
-## The material was gathered from the following webpages:
+## The material was gathered from the following website(s):
 ## http://docs.opencv.org/3.2.0/dd/d43/tutorial_py_video_display.html
 ##
 
@@ -14,11 +15,11 @@ while(True):
     ret, frame = cap.read()
     # Our operations on the frame come here
     # smurf_filter = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-    gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+    grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # Display the resulting frame. To display in color, comment
     # out the line above 'gray = ...' and change the word 'gray'
-    # below to 'frame'
-    cv2.imshow('frame',gray)
+    # in the line below to 'frame'.
+    cv2.imshow('frame', grayscale)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
