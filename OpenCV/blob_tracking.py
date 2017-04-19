@@ -16,11 +16,11 @@ ap.add_argument("-b", "--buffer", type=int, default=64,
 	help="max buffer size")
 args = vars(ap.parse_args())
 
-# define the lower and upper boundaries of the "green"
+# define the lower and upper boundaries of the "color"
 # ball in the HSV color space, then initialize the
 # list of tracked points
-greenLower = (29, 86, 6)
-greenUpper = (64, 255, 255)
+colorLower = (0,150,150)
+colorUpper = (25,255,255)
 pts = deque(maxlen=args["buffer"])
 
 # if a video path was not supplied, grab the reference
@@ -39,7 +39,7 @@ while True:
 
 	# Flip the frame along the vertical axis in order to get a 1 to 1
 	# movement on the screen
-	# frame = frame[::-1,::-1,:]
+	frame = frame[:,::-1,:]
 
 	# if we are viewing a video and we did not grab a frame,
 	# then we have reached the end of the video
@@ -49,13 +49,13 @@ while True:
 	# resize the frame, blur it, and convert it to the HSV
 	# color space
 	frame = imutils.resize(frame, width=600)
-	# blurred = cv2.GaussianBlur(frame, (11, 11), 0)
-	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+	blurred = cv2.GaussianBlur(frame, (11, 11), 0)
+	hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 
-	# construct a mask for the color "green", then perform
+	# construct a mask for the color "color", then perform
 	# a series of dilations and erosions to remove any small
 	# blobs left in the mask
-	mask = cv2.inRange(hsv, greenLower, greenUpper)
+	mask = cv2.inRange(hsv, colorLower, colorUpper)
 	mask = cv2.erode(mask, None, iterations=2)
 	mask = cv2.dilate(mask, None, iterations=2)
 
@@ -79,13 +79,13 @@ while True:
 		if radius > 10:
 			# draw the circle and centroid on the frame,
 			# then update the list of tracked points
-			cv2.circle(frame, (int(x), int(y)), int(radius),
-				(0, 255, 255), 2)
+			# cv2.circle(frame, (int(x), int(y)), int(radius),
+				# (0, 255, 255), 2) # we don't need the circle
 			cv2.circle(frame, center, 5, (0, 0, 255), -1)
 
 	# update the points queue
 	pts.appendleft(center)
-
+	"""
 	# loop over the set of tracked points
 	for i in xrange(1, len(pts)):
 		# if either of the tracked points are None, ignore
@@ -97,7 +97,7 @@ while True:
 		# draw the connecting lines
 		thickness = int(np.sqrt(args["buffer"] / float(i + 1)) * 2.5)
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
-
+	"""
 	# show the frame to our screen
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
